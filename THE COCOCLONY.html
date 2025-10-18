@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Colony by Antbite Studios</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font setup for a modern, clean look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Black background as seen in the images */
+        .page-bg {
+            background-color: #000000;
+        }
+
+        /* Custom Logo SVG Component Style */
+        .logo-y path, .logo-y circle {
+            stroke: white;
+            fill: white;
+            /* Ensure the paths are visible against the dark background */
+        }
+
+        /* Custom Styles for the Archives/Glass Effect */
+        .archive-box {
+            /* Mimics the slight transparency/glass effect */
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Custom Hover Effect for CTAs (Yellow/Gold color palette) */
+        .cta-button {
+            transition: all 0.3s ease;
+            background-color: #ffc107; /* Brighter Yellow/Gold for visibility */
+            color: #000;
+            font-weight: 700;
+            padding: 0.75rem 3rem;
+            border-radius: 0.5rem;
+            text-transform: uppercase;
+        }
+        .cta-button:hover {
+            background-color: #e6b300;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(255, 193, 7, 0.3);
+        }
+
+        /* Placeholder for Video/Image backgrounds, using a dark gradient to match aesthetic */
+        .video-placeholder {
+            min-height: 400px;
+            /* Using a dark gradient for visual interest */
+            background: linear-gradient(135deg, #0f0f0f, #333333);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Custom Divider Lines to separate sections */
+        .custom-divider {
+            width: 100%;
+            height: 1px;
+            background-color: #333;
+            margin: 4rem 0;
+        }
+    </style>
+</head>
+<body class="page-bg text-white antialiased">
+
+    <!-- JavaScript function to render the simplified Antbite Logo (The 'Y' shape) -->
+    <script>
+        function renderAntbiteLogo(size = 'w-8 h-8', className = '') {
+            // SVG structure based on the logo in the images
+            return `
+                <svg class="${size} text-white fill-current ${className} logo-y" viewBox="0 0 100 100">
+                    <circle cx="20" cy="20" r="10" stroke-width="0"/>
+                    <circle cx="80" cy="20" r="10" stroke-width="0"/>
+                    <path d="M50 80 L50 30 L10 50 M50 30 L90 50" stroke-width="8" fill="none"/>
+                </svg>
+            `;
+        }
+    </script>
+
+    <!-- Header (Top Contact Bar) -->
+    <header class="py-3 px-4 sm:px-6 lg:px-8 border-b border-gray-900 bg-black sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-end items-center text-xs text-gray-500 space-x-4 uppercase">
+            <span>antbitestudios@gmail.com</span>
+            <span class="hidden sm:inline">0962.557 0863</span>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section (Includes Logo, CTA, and Audience Grid) -->
+    <section class="min-h-screen pt-12 pb-20 px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-7xl mx-auto">
+            <!-- Main Title Logo Block (Centered) -->
+            <div class="text-center mb-16">
+                <div class="flex flex-col items-center justify-center space-y-2">
+                    <!-- The Colony Logo -->
+                    <script>document.write(renderAntbiteLogo('w-20 h-20', 'stroke-2'));</script>
+                    <div class="text-6xl font-extrabold tracking-widest leading-none">THE COLONY</div>
+                    <div class="text-xl text-gray-400 font-light tracking-wider">by Antbite Studios</div>
+                </div>
+            </div>
+
+            <!-- Main Content Area: CTA, Audience, and Placeholder Image -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                <!-- Left Content: CTA & Intro Text -->
+                <div class="lg:col-span-4 space-y-8 lg:sticky lg:top-20">
+                    <div class="border-l-4 border-white pl-4">
+                        <h2 class="text-xl md:text-2xl font-bold uppercase tracking-wider">
+                            DO YOU WANT <br>VIDEOS & PHOTOS <br>THAT CONVERT?
+                        </h2>
+                    </div>
+                    <a href="#portfolio" class="cta-button inline-block text-base tracking-wider">
+                        WATCH THIS
+                    </a>
+                </div>
+
+                <!-- Right Content: Audience Grid (Over Placeholder Image/Video) -->
+                <div class="lg:col-span-8 video-placeholder rounded-xl shadow-2xl">
+                    <!-- Dark overlay to ensure text visibility -->
+                    <div class="absolute inset-0 bg-black opacity-60"></div>
+                    <div class="relative z-10 p-5 sm:p-10 w-full">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                            <!-- Target Audience 1 -->
+                            <div class="p-4 rounded-lg text-center">
+                                <h3 class="text-2xl sm:text-3xl font-bold text-white uppercase mb-1">BRANDS</h3>
+                                <p class="text-xs sm:text-sm text-gray-300">Creative visuals for established identity.</p>
+                            </div>
+                            <!-- Target Audience 2 -->
+                            <div class="p-4 rounded-lg text-center">
+                                <h3 class="text-2xl sm:text-3xl font-bold text-white uppercase mb-1">BUSINESS OWNERS</h3>
+                                <p class="text-xs sm:text-sm text-gray-300">Content that drives sales and engagement.</p>
+                            </div>
+                            <!-- Target Audience 3 -->
+                            <div class="p-4 rounded-lg text-center">
+                                <h3 class="text-2xl sm:text-3xl font-bold text-white uppercase mb-1">STORY TELLERS</h3>
+                                <p class="text-xs sm:text-sm text-gray-300">For visionaries, dreamers, and narratives.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#portfolio" class="mt-16 block text-center text-lg font-semibold text-gray-400 hover:text-white transition duration-300 border-b-2 border-transparent hover:border-white pb-1">
+                CLICK TO VIEW OUR PORTFOLIO
+            </a>
+        </div>
+    </section>
+
+    <!-- Custom Divider -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="custom-divider"></div></div>
+
+    <!-- 2. Introduction & About Us Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8" id="introduction">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-2">INTRODUCTION</h2>
+            <h3 class="text-4xl sm:text-5xl font-extrabold mb-10 text-white">WHO ARE WE?</h3>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Description -->
+                <div class="space-y-6 text-base sm:text-lg text-gray-300">
+                    <p>
+                        We're <span class="text-white font-semibold">The Colony by Antbite Studios</span>. We're a creative boutique that focuses on helping brands communicate visually and strategically.
+                    </p>
+                    <p>
+                        We handle end-to-end media and design solutions, including **video production** (like ads, campaigns, and event highlights), **comprehensive branding and visual identity**, **graphic design** for marketing and social media, and **product photography** for lifestyle, fashion, and e-commerce.
+                    </p>
+                    <p class="font-bold text-white border-l-4 border-yellow-500 pl-4">
+                        We create the compelling visuals and strategic roadmaps you need to promote your brand effectively and drive impact.
+                    </p>
+                </div>
+
+                <!-- Team Section (The Colony Team) -->
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-4">THE COLONY TEAM</h4>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center mt-6">
+                        <!-- Team Member List (8 members as per image) -->
+                        <!-- Member 1 -->
+                        <div class="p-2">
+                            <div class="w-16 h-16 mx-auto bg-gray-900 rounded-full mb-2 flex items-center justify-center text-gray-500 text-xs border border-gray-700">Photo</div>
+                            <p class="font-semibold text-sm leading-tight">Romwen Francis Adario</p>
+                            <p class="text-xs text-yellow-500">Creative Director</p>
+                        </div>
+                        <!-- Member 2 -->
+                        <div class="p-2">
+                            <div class="w-16 h-16 mx-auto bg-gray-900 rounded-full mb-2 flex items-center justify-center text-gray-500 text-xs border border-gray-700">Photo</div>
+                            <p class="font-semibold text-sm leading-tight">Shane Denzel Gayoma</p>
+                            <p class="text-xs text-yellow-500">Operations Lead</p>
+                        </div>
+                        <!-- Member 3 -->
+                        <div class="p-2">
+                            <div class="w-16 h-16 mx-auto bg-gray-900 rounded-full mb-2 flex items-center justify-center text-gray-500 text-xs border border-gray-700">Photo</div>
+                            <p class="font-semibold text-sm leading-tight">Diandra Denise Manimtim</p>
+                            <p class="text-xs text-yellow-500">Design Specialist</p>
+                        </div>
+                        <!-- Member 4 -->
+                        <div class="p-2">
+                            <div class="w-16 h-16 mx-auto bg-gray-900 rounded-full mb-2 flex items-center justify-center text-gray-500 text-xs border border-gray-700">Photo</div>
+                            <p class="font-semibold text-sm leading-tight">Karla Lois Amihan</p>
+                            <p class="text-xs text-yellow-500">Marketing Lead</p>
+                        </div>
+                        <!-- Member 5 -->
+                        <div class="p-2">
+                            <div class="w-16 h-16 mx-auto bg-gray-900 rounded-full mb-2 flex items-center justify-center text-gray-500 text-xs border border-gray-700">Photo</div>
+                            <p class="font-semibold text-sm leading-tight">Reign Jasmine Ecleo</p>
+                            <p class="text-xs text-yellow-500">Video Editor</p>
+                        </div>
+                        <!-- Member 6 -->
+                        <div class="p-2">
+                            <div class="w-16 h-16 mx-auto bg-gray-900 rounded-full mb-2 flex items-center justify-center text-gray-500 text-xs border border-gray-700">Photo</div>
+                            <p class="font-semibold text-sm leading-tight">John Lloyd Mendoza</p>
+                            <p class="text-xs text-yellow-500">Photographer</p>
+                        </div>
+                        <!-- Member 7 -->
+                        <div class="p-2">
+                            <div class="w-16 h-16 mx-auto bg-gray-900 rounded-full mb-2 flex items-center justify-center text-gray-500 text-xs border border-gray-700">Photo</div>
+                            <p class="font-semibold text-sm leading-tight">Janssen Brendel Garin</p>
+                            <p class="text-xs text-yellow-500">Content Strategist</p>
+                        </div>
+                        <!-- Member 8 -->
+                        <div class="p-2">
+                            <div class="w-16 h-16 mx-auto bg-gray-900 rounded-full mb-2 flex items-center justify-center text-gray-500 text-xs border border-gray-700">Photo</div>
+                            <p class="font-semibold text-sm leading-tight">Brian Justine Cuenca</p>
+                            <p class="text-xs text-yellow-500">Social Media Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Divider -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="custom-divider"></div></div>
+
+    <!-- 3. Services Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8" id="services">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <!-- Services Intro Column (Left) -->
+                <div class="lg:col-span-4 space-y-6">
+                    <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-2">SERVICES</h2>
+                    <h3 class="text-4xl font-extrabold text-white border-l-4 border-white pl-4">
+                        Services
+                    </h3>
+                    <p class="text-base text-gray-300">
+                        Our services are designed to merge **creativity, strategy, and impact**—helping businesses communicate their identity through compelling media and design.
+                    </p>
+                </div>
+
+                <!-- Services Grid (Right) -->
+                <div class="lg:col-span-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Service Column 1: VIDEO PRODUCTION / VISUAL IDENTITY -->
+                        <div class="space-y-8">
+                            <!-- VIDEO PRODUCTION -->
+                            <div class="p-6 rounded-xl archive-box">
+                                <h4 class="text-2xl font-bold mb-4 text-yellow-500">VIDEO PRODUCTION</h4>
+                                <ul class="space-y-2 text-gray-300 list-disc list-inside ml-2">
+                                    <li>Film-Making</li>
+                                    <li>Advertisements</li>
+                                    <li>Event Highlights</li>
+                                    <li>Same-Day Edit (SDE)</li>
+                                    <li>Full Video Campaigns</li>
+                                </ul>
+                            </div>
+                            <!-- VISUAL IDENTITY & STRATEGIES -->
+                            <div class="p-6 rounded-xl archive-box">
+                                <h4 class="text-2xl font-bold mb-4 text-yellow-500">VISUAL IDENTITY & STRATEGIES</h4>
+                                <ul class="space-y-2 text-gray-300 list-disc list-inside ml-2">
+                                    <li>Brand Kits</li>
+                                    <li>Brand Guidelines</li>
+                                    <li>Mood Boards & Visual Direction</li>
+                                    <li>Campaign Conceptualization</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Service Column 2: GRAPHIC DESIGN / PRODUCT PHOTOGRAPHY -->
+                        <div class="space-y-8">
+                            <!-- GRAPHIC DESIGN -->
+                            <div class="p-6 rounded-xl archive-box">
+                                <h4 class="text-2xl font-bold mb-4 text-yellow-500">GRAPHIC DESIGN</h4>
+                                <ul class="space-y-2 text-gray-300 list-disc list-inside ml-2">
+                                    <li>Marketing Collaterals</li>
+                                    <li>Social Media Graphics</li>
+                                    <li>Print Design</li>
+                                    <li>Presentation Decks</li>
+                                    <li>Layout & Editorial Design</li>
+                                    <li>Digital Illustration</li>
+                                </ul>
+                            </div>
+                            <!-- PRODUCT PHOTOGRAPHY -->
+                            <div class="p-6 rounded-xl archive-box">
+                                <h4 class="text-2xl font-bold mb-4 text-yellow-500">PRODUCT PHOTOGRAPHY</h4>
+                                <ul class="space-y-2 text-gray-300 list-disc list-inside ml-2">
+                                    <li>Fashion & Apparel Shots</li>
+                                    <li>Lifestyle Product Shots</li>
+                                    <li>E-commerce Product Shots</li>
+                                    <li>Product Campaign Shoots</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Portfolio/Archives CTA Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900 relative overflow-hidden" id="portfolio">
+        <!-- Background element (to mimic the dark blurred aesthetic from the images) -->
+        <div class="absolute inset-0 bg-black opacity-90"></div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <!-- ARCHIVE BOX STYLED LIKE IMAGE -->
+            <div class="archive-box p-8 md:p-12 rounded-3xl mb-12">
+                <div class="flex items-center justify-center space-x-2 mb-4">
+                    <script>document.write(renderAntbiteLogo('w-8 h-8'));</script>
+                    <span class="text-sm font-semibold text-white uppercase tracking-widest">THE COLONY</span>
+                </div>
+                <h3 class="text-4xl sm:text-5xl font-extrabold mb-4 text-white uppercase">COLONY ARCHIVES</h3>
+                <p class="text-base sm:text-lg text-gray-300 mb-8">
+                    Discover how we turn creative vision into visual impact.
+                </p>
+                <a href="#work-gallery" class="cta-button inline-block text-base tracking-wider">
+                    CLICK TO VIEW OUR PORTFOLIO
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Portfolio Gallery (Based on PORTFOLIO.jpg) -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8" id="work-gallery">
+        <div class="max-w-7xl mx-auto">
+            <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-10 text-center">See Our Work</h4>
+
+            <!-- Mock Audience CTA Bar (As seen at top of PORTFOLIO.jpg) -->
+            <div class="grid grid-cols-3 gap-0 border-t border-b border-gray-700 mb-12">
+                <div class="text-center p-4 bg-gray-900 border-r border-gray-700">
+                    <p class="text-sm sm:text-lg font-bold text-white">BRANDS</p>
+                </div>
+                <div class="text-center p-4 bg-gray-900 border-r border-gray-700">
+                    <p class="text-sm sm:text-lg font-bold text-white">BUSINESS OWNERS</p>
+                </div>
+                <div class="text-center p-4 bg-gray-900">
+                    <p class="text-sm sm:text-lg font-bold text-white">STORY TELLERS</p>
+                </div>
+            </div>
+
+            <!-- Video Thumbnail Grid (As seen in PORTFOLIO.jpg) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <!-- Grid Items (9 total, matching the image layout) -->
+                <!-- Item 1: The Colony Video Advertisement -->
+                <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl aspect-video">
+                    <img src="https://placehold.co/600x400/171717/9ca3af?text=Video+Ad+1" alt="The Colony Video Advertisement Thumbnail" class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4">
+                        <span class="absolute top-2 right-4 text-4xl font-black text-white opacity-80">1</span>
+                        <p class="font-bold text-white text-base sm:text-lg">The Colony Video Advertisement</p>
+                    </div>
+                </div>
+                <!-- Item 2: Antbite Studios Corporate Video -->
+                <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl aspect-video">
+                    <img src="https://placehold.co/600x400/171717/9ca3af?text=Video+Ad+2" alt="Antbite Studios Corporate Video Thumbnail" class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4">
+                        <span class="absolute top-2 right-4 text-4xl font-black text-white opacity-80">2</span>
+                        <p class="font-bold text-white text-base sm:text-lg">Antbite Studios Corporate Video</p>
+                    </div>
+                </div>
+                <!-- Item 3: PCLEDO AVP -->
+                <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl aspect-video">
+                    <img src="https://placehold.co/600x400/171717/9ca3af?text=Video+Ad+3" alt="PCLEDO AVP Thumbnail" class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4">
+                        <span class="absolute top-2 right-4 text-4xl font-black text-white opacity-80">3</span>
+                        <p class="font-bold text-white text-base sm:text-lg">PCLEDO AVP</p>
+                    </div>
+                </div>
+                <!-- Item 4: COPRESO Video -->
+                <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl aspect-video">
+                    <img src="https://placehold.co/600x400/171717/9ca3af?text=Video+Ad+4" alt="COPRESO Video Thumbnail" class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4">
+                        <span class="absolute top-2 right-4 text-4xl font-black text-white opacity-80">4</span>
+                        <p class="font-bold text-white text-base sm:text-lg">COPRESO Video</p>
+                    </div>
+                </div>
+                <!-- Item 5: Working Space Video Advertisement -->
+                <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl aspect-video">
+                    <img src="https://placehold.co/600x400/171717/9ca3af?text=Video+Ad+5" alt="Working Space Video Advertisement Thumbnail" class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4">
+                        <span class="absolute top-2 right-4 text-4xl font-black text-white opacity-80">5</span>
+                        <p class="font-bold text-white text-base sm:text-lg">Working Space Video Advertisement</p>
+                    </div>
+                </div>
+                <!-- Item 6: ACACIA GARDEN CAFE -->
+                <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl aspect-video">
+                    <img src="https://placehold.co/600x400/171717/9ca3af?text=Video+Ad+6" alt="ACACIA GARDEN CAFE Video Thumbnail" class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4">
+                        <span class="absolute top-2 right-4 text-4xl font-black text-white opacity-80">6</span>
+                        <p class="font-bold text-white text-base sm:text-lg">ACACIA GARDEN CAFE</p>
+                    </div>
+                </div>
+                <!-- Item 7: Hot Bites Video Advertisement -->
+                <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl aspect-video">
+                    <img src="https://placehold.co/600x400/171717/9ca3af?text=Video+Ad+7" alt="Hot Bites Video Advertisement Thumbnail" class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4">
+                        <span class="absolute top-2 right-4 text-4xl font-black text-white opacity-80">7</span>
+                        <p class="font-bold text-white text-base sm:text-lg">Hot Bites Video Advertisement</p>
+                    </div>
+                </div>
+                <!-- Item 8: Boldes's Barbeque International -->
+                <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl aspect-video">
+                    <img src="https://placehold.co/600x400/171717/9ca3af?text=Video+Ad+8" alt="Boldes's Barbeque International Thumbnail" class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4">
+                        <span class="absolute top-2 right-4 text-4xl font-black text-white opacity-80">8</span>
+                        <p class="font-bold text-white text-base sm:text-lg">Boldes's Barbeque International</p>
+                    </div>
+                </div>
+                <!-- Item 9: Short Form Reels/Content -->
+                <div class="relative group cursor-pointer overflow-hidden rounded-lg shadow-xl aspect-video">
+                    <img src="https://placehold.co/600x400/171717/9ca3af?text=Video+Ad+9" alt="Short Form Reels/Content Thumbnail" class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4">
+                        <span class="absolute top-2 right-4 text-4xl font-black text-white opacity-80">9</span>
+                        <p class="font-bold text-white text-base sm:text-lg">Short Form Reels/Content</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-black border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
+            <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                <script>document.write(renderAntbiteLogo('w-4 h-4'));</script>
+                <span>The Colony by Antbite Studios</span>
+            </div>
+            <div class="flex space-x-6">
+                <a href="mailto:antbitestudios@gmail.com" class="hover:text-white transition duration-200">antbitestudios@gmail.com</a>
+                <a href="tel:+639625570863" class="hover:text-white transition duration-200">0962 557 0863</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
